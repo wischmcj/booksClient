@@ -1,0 +1,23 @@
+@baseUrl = http://localhost:1337/
+###
+
+
+GET http://localhost:1337/books HTTP/1.1
+Accept: application.json
+
+
+### Adding a Book
+POST http://localhost:1337/books HTTP/1.1
+Content-Type: application/json
+
+
+
+{
+"title": "Classroom Setup Tricks",
+"author": "Jeff Gonzalez",
+"numberOfPages": 2
+}
+
+### Removing a book
+
+DELETE {{baseUrl}}/books/4 HTTP/1.1

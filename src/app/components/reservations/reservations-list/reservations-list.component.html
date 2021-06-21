@@ -1,0 +1,20 @@
+<header>
+  <h3>Your Reservations</h3>
+</header>
+<section class="row">
+  <article class="col">
+    <header>
+      <h4>Local Reservations</h4>
+      <p>These reservations haven't been sent to the server yet!</p>
+    </header>
+    <app-reservations-list-display [list]="localReservations$ | async"></app-reservations-list-display>
+  </article>
+
+  <article class="col">
+    <header>
+      <h4>Reservations at Server</h4>
+      <p>These reservations are at the server.</p>
+    </header>
+    <app-reservations-list-display [list]="referenceReservations$ | async"></app-reservations-list-display>
+  </article>
+</section>

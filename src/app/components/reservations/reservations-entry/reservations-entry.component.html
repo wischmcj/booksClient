@@ -1,0 +1,34 @@
+<form [formGroup]="form"
+      (ngSubmit)="submit(me)">
+
+  <div class="form-group">
+    <label for="for">Who is this reservation for?</label>
+    <input class="form-control"
+           #me
+           formControlName="for">
+    <div class="alert alert-danger"
+         *ngIf="for?.errors && (for?.touched || for?.dirty)">
+      <p>Who is this for? We gotta know!</p>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <div class="form-check"
+         *ngFor="let book of books$ | async">
+      <input type="checkbox"
+             class="form-check-input"
+             [checked]="checked(book.id)"
+             [value]="book.id"
+             (change)="onCheckChanged($event)">
+      <label class="form-check-label">{{book.title }} by {{ book.author }}</label>
+    </div>
+    <div class="alert alert-danger"
+         *ngIf="books?.errors && (books?.touched || books?.dirty)">
+      <p>Please Select at least One Book.</p>
+    </div>
+  </div>
+  <div>
+    <button type="submit"
+            class="btn btn-primary">Add Reservation</button>
+  </div>
+</form>

@@ -1,0 +1,20 @@
+<div class="alert alert-info"
+     *ngIf="list === null || list?.length === 0">
+  <p>There are no reservations to display.</p>
+</div>
+<ul class="list-unstyled"
+    *ngFor="let res of list">
+  <li class="card">
+    <div class="card-header">Reservation Id: {{ res.id }} For {{ res.for }} </div>
+    <div class="card-body">
+      <ul>
+        <li *ngFor="let book of res.books">
+          Id: {{book.id}} ({{book.title}} by {{ book.author}})
+        </li>
+      </ul>
+    </div>
+    <div class="card-footer">
+      <p class="alert alert-info">This reservation is {{ res.status }}</p>
+    </div>
+  </li>
+</ul>
